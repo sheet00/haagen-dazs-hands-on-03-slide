@@ -1,5 +1,6 @@
 ---
 marp: true
+title: "VSCode×生成AI×MCPで業務効率化ハンズオン"
 theme: default
 paginate: true
 backgroundColor: #f8f9fa
