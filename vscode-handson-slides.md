@@ -52,26 +52,100 @@ style: |
     padding: 20px;
     margin: 10px 0;
   }
+   .mermaid {
+    width: 100%;
+    height: 100%;
+    background: none;
+    border: none;
+    filter: invert(0) !important;
+  }
+  .mermaid svg {
+    display: block;
+    min-width: 100%;
+    max-width: 100%;
+    max-height: 100%;
+    margin: 0 auto
+  }
+  .mermaid .actor {
+    fill: #2c3e50 !important;
+    stroke: #2c3e50 !important;
+  }
+  .mermaid .actor-line {
+    stroke: #2c3e50 !important;
+  }
+  .mermaid .messageLine0, .mermaid .messageLine1 {
+    stroke: #2c3e50 !important;
+  }
+  .mermaid .messageText {
+    fill: #2c3e50 !important;
+    font-weight: bold !important;
+  }
+  .mermaid .labelText {
+    fill: #2c3e50 !important;
+    font-weight: bold !important;
+  }
+  .mermaid .note {
+    fill: #ecf0f1 !important;
+    stroke: #95a5a6 !important;
+  }
+  .mermaid .noteText {
+    fill: #2c3e50 !important;
+    font-weight: bold !important;
+  }
+  .mermaid .alt rect {
+    fill: #f8f9fa !important;
+    stroke: #6c757d !important;
+  }
+  .mermaid .alt text {
+    fill: #2c3e50 !important;
+    font-weight: bold !important;
+  }
+  .mermaid .alt .altText {
+    fill: #2c3e50 !important;
+    font-weight: bold !important;
+  }
+  .mermaid rect.labelBox {
+    fill: #ffffff !important;
+    stroke: #6c757d !important;
+  }
 ---
 
-# 今日から使える<br/>VSCODE×生成AI×MCPで業務効率化！
+<script type="module">
+  import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@latest/dist/mermaid.esm.min.mjs';
+  mermaid.initialize({ startOnLoad: true });
+</script>
 
-## プログラミング知識不要で実現する次世代業務効率化
+
+# 今日から使えるVSCODE×生成AI×MCP
+
+## プログラミング知識不要で次世代業務効率化！
+
 
 ---
-
-## 📋 講座概要
+# 📋 講座概要
 
 **⏰ 時間：** 1時間～2時間程度  
-**👥 対象：** 非エンジニア・PM・事務職など幅広い職種  
-**🎯 目標：** プログラミング知識不要で業務効率化を実現
+**👥 対象：**  
+- 生成AIを利用した業務効率化に興味がある人
+- プログラミングは苦手だけど生成AIに興味がある人  
+- 生成AIによるMCP連携を始めてみたい人
 
-### 今日の流れ
-1. 生成AI時代の最新動向
+**🎯 目標：** 自分の仕事にVSCODEx生成AIを取り入れてみよう！
+
+---
+
+# ハンズオン目次
+
+1. 生成AIの動向
 2. 生成AI活用の基礎
 3. 月報自動作成システム
 4. MCP活用による業務連携
 5. 実践ワークショップ
+
+### ✨ 期待できる成果
+- 業務効率化の新しいアプローチを習得
+- AIツールを使った実践的なスキル獲得
+- 実際の業務に活かせる具体的なノウハウ
 
 ---
 
@@ -82,30 +156,74 @@ style: |
 
 ---
 
-## 1-1. なぜ今VSCODE×生成AIなのか？
+# 1-1. なぜ今VSCODE×生成AIなのか？
 
-### 🚀 新時代の到来
-- **エンジニア以外でも使える**時代の到来
-- **業務効率化の新しいアプローチ**
-- **実際の導入事例**紹介
+## 🚀 新時代の到来
+- エンジニア以外でも使える時代の到来
+- 業務効率化の新しいアプローチ
 
-### 💡 変化のポイント
-- プログラミング知識が不要に
+## 💡 変化のポイント
 - 自然言語での指示が可能
+- 生成AIとテキストコンテンツ
 - ツール連携の自動化
 
 ---
 
-## 1-2. 今日学ぶツール紹介
+
+# 1-2. 今日学ぶツール紹介
 
 ### 🛠️ 三種の神器
 
 | ツール | 役割 | 効果 |
 |--------|------|------|
 | **VSCODE** | 万能エディタとしての活用 | 統合環境で効率UP |
-| **生成AI (Gemini-CLI)** | 文章・コード生成の相棒 | 自動化で時短実現 |
-| **MCP** | ツール連携の革命的技術 | システム間連携 |
+| **生成AI** | 文章・コード生成の相棒 | 自動化で時短実現 |
+| **MCP** | 生成AIを利用し、テキスト以外の用途で実行 | システム間連携 |
 
+---
+<style scoped>
+section {
+font-size: 26px;
+}
+</style>
+# 1-3. VSCODEと生成AI
+
+## 📅 2024年：生成AI拡張機能の登場
+
+* **生成AIはテキストベースであり、コード生成と相性がよい**
+  - プログラミングコードもマークダウンも全部テキスト！
+  - AIが得意な「文章生成」がそのまま「コード生成」になる
+
+* **モデルの性能が高くなる。コストが下がることで、より浸透していった**
+  - GPT-4、Claude、Geminiなどの高性能モデルが普及
+  - APIコストが下がって個人でも気軽に使えるように
+
+## 💡 2024年の具体的な変化
+- GitHub Copilot、Claude for VSCodeなどの拡張機能が続々登場
+- 「コメントを書くとコードが自動補完される」時代の到来
+
+---
+<style scoped>
+section {
+font-size: 26px;
+}
+</style>
+
+# 1-4. 2025年の進化：MCP時代
+
+* **生成AIに権限を持たせる**
+  - テキストの読み書きだけでなく、OS処理そのものの権限を移譲
+  - ファイル操作、コマンド操作など、あらゆるものが生成AIから操作可能
+
+* **MCPによってAIの能力が爆発的に拡張**
+  - テキスト生成だけでなく、システム連携が可能に
+  - Jira、Git、データベースなど外部ツールとの自動連携
+
+
+## 💫 2025年の革新
+- テキストファイルをベースとして、幅広い使い方が可能に
+- エンジニア以外でもVSCODEを使い始める人が急増
+- 業務効率化の新次元へ突入
 ---
 
 <!-- _class: chapter -->
@@ -119,27 +237,109 @@ style: |
 
 <div class="lecture">
 
-### 📚 【講義】システム理解
+### 📚 内部的な仕組み
 - VSCODEの拡張機能がどう連携しているか
-- MCPの設定ファイル（.mcp.json）の中身解説
 - 生成AIツールとの接続の仕組み
-- 今日使う環境の全体像
+- MCPの設定ファイル（.mcp.json）の中身解説
 
 </div>
 
-### 🔄 連携フロー
-```
-VSCODE ↔ MCP ↔ 生成AI ↔ 外部ツール
+---
+<!-- <style scoped>
+section {
+  padding-top:20px;
+}
+</style> -->
+
+# 生成AIを利用したテキスト編集
+
+<pre class="mermaid">
+sequenceDiagram
+    participant User as 👤 ユーザー
+    participant VSCode as 📝 VSCODE
+    participant Plugin as 🔌 拡張機能(roo cline等)
+    participant API as 🌐 生成AI API(ChatGPT)
+
+    User->>VSCode: コード編集・チャット入力
+    VSCode->>Plugin: 実行
+    Plugin->>API: プロンプト送信(コード + 指示)
+    API->>Plugin: 生成結果返却(コード)
+    Plugin->>VSCode: エディタに自動挿入
+    VSCode->>User: 生成コードを表示
+</pre>
+---
+
+
+# 生成AIを利用したMCP実行例
+
+<style scoped>
+section {
+  padding-top:20px;
+}
+</style>
+
+<pre class="mermaid">
+sequenceDiagram
+    participant User as 👤 ユーザー
+    participant VSCode as 📝 VSCODE
+    participant API as 🌐 生成AI API(ChatGPT)
+    participant MCP as 🔌 MCP Server
+    participant Jira as 📋 Jira API
+
+    User->>VSCode: 「ログイン機能のバグ修正チケットを作成して」
+
+    Note over User,VSCode: 自然言語での指示から自動でJiraチケット作成
+    VSCode->>API: 実行
+    API->>API: プロンプトからMCPを判定
+    
+    Note over API: 「チケット作成」「Jira」などのキーワードから<br/>必要なMCPを自動選択
+    API->>API: チケット内容を構造化<br/>(summary, description, issue_type等)
+    API->>MCP: Jiraチケット作成要求<br/>(project_key, summary, description)
+    MCP->>Jira: REST API呼び出し<br/>(POST /issue)
+    Jira->>MCP: 作成結果返却<br/>(issue_key: PROJ-124)
+    MCP->>API: 作成完了情報を転送
+    API->>VSCode: 「PROJ-124を作成しました」<br/>チケット詳細も表示
+    VSCode->>User: 作成完了を表示
+</pre>
+---
+<style scoped>
+section {
+  padding-top:20px;
+}
+</style>
+
+# MCP設定例
+
+**mcpservers**を定義することで、生成AIが対象のMCPを呼び出せるようになる
+
+GitHub MCP Server
+https://github.com/modelcontextprotocol/servers-archived/tree/main/src/github
+
+```json
+{
+  "mcpServers": {
+    "github": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "@modelcontextprotocol/server-github"
+      ],
+      "env": {
+        "GITHUB_PERSONAL_ACCESS_TOKEN": "<YOUR_TOKEN>"
+      }
+    }
+  }
+}
 ```
 
 ---
 
-## 2-2. Google Gemini-CLIの使い方 🎯
+## 2-2. Roo Codeの使い方 🎯
 
 <div class="demo">
 
 ### 🎬 【実演】生成AIの力を体験
-- **ライブデモ**: 生成AIとの対話でできること
+- 生成AIとの対話でできること
 - 文章作成・要約・翻訳の実践
 - 業務での活用シーン紹介
 
@@ -148,8 +348,89 @@ VSCODE ↔ MCP ↔ 生成AI ↔ 外部ツール
 ### 💼 活用例
 - 📝 議事録の自動要約
 - 📧 メール文章の自動生成
-- 🌐 多言語翻訳
+- 🌐 会議資料の作成
 - 📊 データ分析支援
+
+---
+
+# あいさつしてみよう
+
+![h:500](./img/greeting.png)
+
+---
+
+# 要約してみよう
+
+```
+下記サイトの要約教えて
+
+MCP fetch
+
+https://blog.samaltman.com/the-gentle-singularity
+```
+
+---
+<style scoped>
+/* section {
+  padding-top:20px;
+} */
+</style>
+
+# メール本文を作ってみよう
+
+### ✉️ シーン：顧客からの納期問い合わせ
+
+**プロンプト例:**
+
+```markdown
+# 指示
+返信メール作成しろ。納期は7月中旬頃。
+入荷状況によってもう1ヶ月延びる可能性あり。
+テキストファイルとして書き出せ。
+
+
+# メール本文
+件名：【問い合わせ】注文した商品の納期について
+株式会社〇〇 御中
+お世話になっております。
+6月20日に注文いたしました製品（製品番号: XYZ-123）について、現在の納期はいつ頃になりますでしょうか。
+
+山田太郎
+
+```
+
+---
+<style scoped>
+section {
+  padding-top:20px;
+}
+</style>
+# チャットインターフェースとの違い
+
+## 🤔 一般的なチャットAIとの比較
+
+### 通常のチャットインターフェース
+- 基本的には「対話のみ」
+- テキストベースでの質問・回答
+- 結果をコピー&ペーストで利用
+
+### VSCode + 生成AI連携の優位性
+- **ファイル操作の自動化**：直接ローカルファイルを読み書き
+- **MCP連携**：外部サービスとの統合
+- **コード生成・修正**：プロジェクト全体を理解した実装
+- **ワークフロー自動化**：複数の作業を一連の流れで実行
+
+---
+
+# 例えば・・・
+
+## 🚀 実際の活用例
+
+* **WEBページ要約 → 資料作成**：サイト情報を自動取得し、Markdownで整形
+* **問い合わせメール → FAQ更新**：顧客の質問をもとに知識ベースを充実
+* **Jiraチケット → 進捗レポート**：プロジェクト状況を自動集計・可視化
+* **コードレビュー → 内容実装**：既存コードを解析し、品質向上とバグ修正を実行
+* **会議メモ → 次回会議アジェンダ作成**：議事録を分析し、次回の議論ポイントを自動生成
 
 ---
 
@@ -162,20 +443,41 @@ VSCODE ↔ MCP ↔ 生成AI ↔ 外部ツール
 
 ## ステップ1: 生成AIでデータ分析
 
+VSCODEと生成AIを組み合わせることで、強力なツールへ！
+
 <div class="hands-on">
 
 ### 🔍 データ分析の実践
 - 手元にある売上データ（sales_data.csv）を生成AIに読み込ませる
-- 「このデータの傾向を分析して月報用のレポートを作成して」とプロンプト入力
-
-### 💻 **やってみよう**: 生成AIに分析指示を出してみよう
+- 内容を分析させる
+- 分析結果をマークダウンで書き出し
 
 </div>
 
-### 📊 分析内容
+---
+
+# やってみよう：データ分析
+
+
+```markdown
+# 指示
+あなたはデータ分析担当者です。
+以下内容を分析し、2024/06月度レポートを作成しろ。
+マークダウンで出力しろ。
+
+## 売上実績データ
+`sales_data.csv`
+
+## 売上予算データ
+`sales_target.csv`
+
+## 分析内容
 - 売上トレンド分析
 - 前月比較
 - KPI達成状況
+- 来月の予測
+- 区エリア単位での動向
+```
 
 ---
 
@@ -237,10 +539,15 @@ VSCODE ↔ MCP ↔ 生成AI ↔ 外部ツール
 
 </div>
 
-### 🔄 MCPの威力
-```
-生成AI + MCP = 無限の可能性
-```
+---
+
+# 🔄 MCPの威力
+<pre class="mermaid">
+graph TD
+    A[生成AI] --> C[効率化]
+    B[MCP] --> C
+    C --> D[自動化]
+</pre>
 
 ---
 
@@ -316,10 +623,24 @@ VSCODE ↔ MCP ↔ 生成AI ↔ 外部ツール
 
 </div>
 
+---
+
 ### 🔄 処理フロー
-```
-Jira → MCP → 生成AI → 理解・分析
-```
+<pre class="mermaid">
+sequenceDiagram
+    participant J as Jira
+    participant M as MCP
+    participant A as 生成AI
+    participant U as ユーザー
+    
+    U->>J: 課題情報取得
+    J->>M: API経由でデータ送信
+    M->>A: 構造化データとして転送
+    A->>A: 理解・分析処理
+    A->>U: 分析結果を返却
+    
+    Note over J,A: シームレスな連携
+</pre>
 
 ---
 
@@ -376,10 +697,15 @@ Jira → MCP → 生成AI → 理解・分析
 
 </div>
 
+---
+
 ### 🎯 完成！
-```
-課題 → 実装 → 検証 → 管理
-```
+<pre class="mermaid">
+graph LR
+    A[課題] --> B[実装]
+    B --> C[検証]
+    C --> D[管理]
+</pre>
 
 ---
 
