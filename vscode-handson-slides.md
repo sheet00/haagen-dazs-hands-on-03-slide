@@ -240,9 +240,9 @@ font-size: 26px;
 ### 📚 内部的な仕組み
 - VSCODEの拡張機能がどう連携しているか
 - 生成AIツールとの接続の仕組み
-- MCPの設定ファイル（.mcp.json）の中身解説
 
 </div>
+
 
 ---
 <!-- <style scoped>
@@ -267,70 +267,8 @@ sequenceDiagram
     Plugin->>VSCode: エディタに自動挿入
     VSCode->>User: 生成コードを表示
 </pre>
----
 
 
-# 生成AIを利用したMCP実行例
-
-<style scoped>
-section {
-  padding-top:20px;
-}
-</style>
-
-<pre class="mermaid">
-sequenceDiagram
-    participant User as 👤 ユーザー
-    participant VSCode as 📝 VSCODE
-    participant API as 🌐 生成AI API(ChatGPT)
-    participant MCP as 🔌 MCP Server
-    participant Jira as 📋 Jira API
-
-    User->>VSCode: 「ログイン機能のバグ修正チケットを作成して」
-
-    Note over User,VSCode: 自然言語での指示から自動でJiraチケット作成
-    VSCode->>API: 実行
-    API->>API: プロンプトからMCPを判定
-    
-    Note over API: 「チケット作成」「Jira」などのキーワードから<br/>必要なMCPを自動選択
-    API->>API: チケット内容を構造化<br/>(summary, description, issue_type等)
-    API->>MCP: Jiraチケット作成要求<br/>(project_key, summary, description)
-    MCP->>Jira: REST API呼び出し<br/>(POST /issue)
-    Jira->>MCP: 作成結果返却<br/>(issue_key: PROJ-124)
-    MCP->>API: 作成完了情報を転送
-    API->>VSCode: 「PROJ-124を作成しました」<br/>チケット詳細も表示
-    VSCode->>User: 作成完了を表示
-</pre>
----
-<style scoped>
-section {
-  padding-top:20px;
-}
-</style>
-
-# MCP設定例
-
-**mcpservers**を定義することで、生成AIが対象のMCPを呼び出せるようになる
-
-GitHub MCP Server
-https://github.com/modelcontextprotocol/servers-archived/tree/main/src/github
-
-```json
-{
-  "mcpServers": {
-    "github": {
-      "command": "npx",
-      "args": [
-        "-y",
-        "@modelcontextprotocol/server-github"
-      ],
-      "env": {
-        "GITHUB_PERSONAL_ACCESS_TOKEN": "<YOUR_TOKEN>"
-      }
-    }
-  }
-}
-```
 
 ---
 
@@ -648,7 +586,7 @@ section {
 <!-- _class: chapter -->
 
 # Chapter 4
-## MCP活用による業務連携 🔗
+## MCPの解説 🔗
 
 ---
 
@@ -656,9 +594,8 @@ section {
 
 <div class="lecture">
 
-### 🧠 【講義】革命的技術の理解
+### 🧠 【講義】MCPの理解
 - Model Context Protocolの基本概念
-- なぜ業務効率化に革命をもたらすのか
 - 生成AIとMCPの関係：AIの能力をツール連携で拡張
 - 導入のメリットと事例
 
@@ -666,49 +603,130 @@ section {
 
 ---
 
-# 🔄 MCPの威力
+
+# MCPの基本概念
+
+一言でいうなら・・・・
+
+生成AIが**自分で考えて**、APIを呼び出す機能
+
+✨ **従来**：人間がAPIを呼び出し、結果を生成AIに渡す
+✨ **MCP**：生成AIが必要に応じて自動でAPIを呼び出す  
+✨ **結果**：より自然で効率的な対話が可能に！
+
+
+
+やさしいMCP入門
+https://speakerdeck.com/minorun365/yasasiimcpru-men
+
+
+---
+
+# MCPの基本的な使い方例：ファイル書き込み
+
+## 1. MCPツールの準備
+生成AIに**file_write**というMCPツールを用意
+
+## 2. システムプロンプトの設定
+```
+お前は**file_write**を使えるのだ！
+```
+
+## 3. 実際の実行例
+- **ユーザー**：「ファイルを作成して！」
+- **生成AI**：「なら**file_write**機能使うね！」
+- **生成AI**：ファイル作成完了！
+
+---
+
+## MCPの仕組み（図解）
+
 <pre class="mermaid">
-graph TD
-    A[生成AI] --> C[効率化]
-    B[MCP] --> C
-    C --> D[自動化]
+graph LR
+    A[ユーザー] -->|「ファイルを作成して！」| B[生成AI]
+    B -->|考える 🤔| C[file_write MCP]
+    C --> D[ファイルシステム]
+    D -->|ファイル作成完了| E[作成されたファイル]
+    E -->|結果報告| B
+    B -->|「作成したよ！」| A
+    
+    subgraph MCP["MCP (Model Context Protocol)"]
+        F[お前はfile_writeを使える！]
+        C
+    end
+    
+    style B fill:#4fc3f7,color:#ffffff
+    style C fill:#66bb6a
+    style D fill:#ffb74d,color:#ffffff
+    style MCP fill:#bdbdbd
 </pre>
 
 ---
 
-## 4-2. Jira連携の実践 💻
+# 生成AIを利用したMCP実行例：JIRA
 
-<div class="hands-on">
+<style scoped>
+section {
+  padding-top:20px;
+}
+</style>
 
-### 🎯 【ハンズオン】プロジェクト管理の革新
-- **実習**: システム要件定義をサンプルプロジェクトに作成
-- MCPによるWiki自動更新
-- チケット作成・管理の自動化
-- プロジェクト管理の効率化
+<pre class="mermaid">
+sequenceDiagram
+    participant User as 👤 ユーザー
+    participant VSCode as 📝 VSCODE
+    participant API as 🌐 生成AI API(ChatGPT)
+    participant MCP as 🔌 MCP Server
+    participant Jira as 📋 Jira API
 
-### 💻 **やってみよう**: 実際にJiraでタスク作成
+    User->>VSCode: 「ログイン機能のバグ修正チケットを作成して」
 
-</div>
+    Note over User,VSCode: 自然言語での指示から自動でJiraチケット作成
+    VSCode->>API: 実行
+    
+    Note over API: 「チケット作成」「Jira」などのキーワードから必要なMCPを自動選択
+    API->>API: プロンプトから利用するMCPを判定    
+
+    API->>API: チケット内容を構造化<br/>(summary, description, issue_type等)
+    API->>MCP: Jiraチケット作成要求<br/>(project_key, summary, description)
+    MCP->>Jira: REST API呼び出し<br/>(POST /issue)
+    Jira->>MCP: 作成結果返却<br/>(issue_key: PROJ-124)
+    MCP->>API: 作成完了情報を転送
+    API->>VSCode: 「PROJ-124を作成しました」<br/>チケット詳細も表示
+    VSCode->>User: 作成完了を表示
+</pre>
 
 ---
+<style scoped>
+section {
+  padding-top:20px;
+}
+</style>
 
-## 4-3. Git連携による文書管理 💻
+# MCP設定例
 
-<div class="hands-on">
+**mcpservers**を定義することで、生成AIが対象のMCPを呼び出せるようになる
 
-### 📚 【ハンズオン】バージョン管理の活用
-- **実習**: MCPによるGit操作
-- バージョン管理された文書作成
-- チーム協作の効率化
+GitHub MCP Server
+https://github.com/modelcontextprotocol/servers-archived/tree/main/src/github
 
-### 💻 **やってみよう**: 文書をGitで管理してみる
+```json
+{
+  "mcpServers": {
+    "github": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "@modelcontextprotocol/server-github"
+      ],
+      "env": {
+        "GITHUB_PERSONAL_ACCESS_TOKEN": "<YOUR_TOKEN>"
+      }
+    }
+  }
+}
+```
 
-</div>
-
-### 📝 Git活用のメリット
-- 変更履歴の自動記録
-- チーム間での共有
-- バックアップの自動化
 
 ---
 
@@ -717,120 +735,176 @@ graph TD
 # Chapter 5
 ## 実践ワークショップ 🛠️
 
----
 
-## 5-1. Chapter 4で定義した内容を実装 💻
+---
+<style scoped>
+section {
+  padding-top:20px;
+  font-size:28px;
+}
+</style>
+
+# やってみよう
 
 <div class="hands-on">
 
-### 🚀 【実装ハンズオン】総合演習
-実際の業務フローを体験してみましょう！
+### 🚀 【ハンズオン】総合演習
+
+これまで実践した内容を踏まえて、一連の作業に生成AIを取り込んでみよう！
 
 </div>
 
-### 📋 実装ステップ
-1. **JIRAで作ったISSUEを読み込み**
-2. **生成AIへ指示して実装**
-3. **生成結果を確認**
-4. **git commit**
+## 目標
+売上データCSVを読み込んで、簡単なランディングページを作成してください
+
+## 手順
+* **生成AIで**ランディングページ実装計画を作成
+* **生成AIで**JIRAにチケット登録
+* **生成AIで**ランディングページ作成
+* **生成AIで**git commit
+
+---
+<style scoped>
+section {
+  padding-top:20px;
+  font-size:20px;
+}
+</style>
+
+# Step 1: 生成AIで実装計画作成 🤖
+
+
+**プロンプト例:**
+```markdown
+# 指示
+売上データCSVを読み込んで表示するランディングページの実装計画を作って。
+実装はせず計画のみ考えろ。モック利用のため、シンプルな作りにしろ。
+計画をマークダウンで出力しろ。
+
+# 作業フォルダ
+`sales_report`
+
+# 出力ファイル
+`ランディングページ計画.md`
+
+# 内容
+ランディングページとして、HTMLページ1ページだけ作成
+グラフを利用したい(chart.js)
+画面ロード時にCSVファイルを読み込み
+
+`2024年6月度売上レポート.md`
+の内容を分かりやすく表現したページにしたい。
+
+
+# 検討外
+下記は考慮不要
+
+* テスト
+* レスポンシブ
+* セキュリティ
+* 成功指標
+* 性能
+```
+
+
 
 ---
 
-## ステップ1: JIRAで作ったISSUEを読み込み
+# Step 2: JIRAチケット自動登録 🎫
 
-<div class="hands-on">
 
-### 📖 課題情報の取得
-- MCPを使ってJiraから課題情報を取得
-- 要件定義やタスク内容を生成AIに読み込ませる
+**プロンプト例:**
+```markdown
+# 指示
+実装計画をもとにJIRAにタスクチケットを作成して
+チケットは1枚で記載すること
 
-### 💻 **やってみよう**: 実際のJiraチケットを選択・読み込み
+作成後、作成したチケットURLを提示すること。
 
-</div>
+# JIRA情報
+## ハーゲンダッツJIRA
+https://haagen-dazs.atlassian.net/jira/software/projects/FMDV/boards/2/backlog
 
----
+## Issueタイトル
+ハーゲンダッツ売上レポート ランディングページ作成
 
-### 🔄 処理フロー
-<pre class="mermaid">
-sequenceDiagram
-    participant J as Jira
-    participant M as MCP
-    participant A as 生成AI
-    participant U as ユーザー
-    
-    U->>J: 課題情報取得
-    J->>M: API経由でデータ送信
-    M->>A: 構造化データとして転送
-    A->>A: 理解・分析処理
-    A->>U: 分析結果を返却
-    
-    Note over J,A: シームレスな連携
-</pre>
+## issuetype
+issuetype: "Task"
 
----
+## 優先度設定
+デフォルトのMediumが自動適用
 
-## ステップ2: 生成AIへ指示して実装
+# 作業フォルダ
+`sales_report`
 
-<div class="hands-on">
+# 計画ファイル
+`ランディングページ計画.md`
 
-### 🎯 AI駆動開発の実践
-- JiraのISSUE内容を基に生成AIへ実装指示
-- プロンプトエンジニアリングの実践
-- コード生成・文書作成の自動化
+```
 
-### 💻 **やってみよう**: AIへの指示文を作成・実行
-
-</div>
-
-### 💡 プロンプトのコツ
-- 具体的で明確な指示
-- 期待する出力形式の指定
-- 制約条件の明記
+ハーゲンダッツJIRA
+https://haagen-dazs.atlassian.net/jira/software/projects/FMDV/boards/2/backlog
 
 ---
 
-## ステップ3: 生成結果を確認
+# Step 3: ランディングページ実装 💻
 
-<div class="hands-on">
+**プロンプト例:**
+```markdown
+JIRAのチケットを参考にランディングページを実装して。HTMLとCSSとJavaScriptで作って
 
-### ✅ 品質管理の実践
-- 生成されたコード・文書の品質チェック
-- 要件との整合性確認
-- 必要に応じて修正・改善
+# 作業フォルダ
+`sales_report`
 
-### 💻 **やってみよう**: 生成物の検証・調整
+# JIRA情報
+## ハーゲンダッツJIRA
+https://haagen-dazs.atlassian.net/jira/software/projects/FMDV/boards/2/backlog
 
-</div>
+## Issueタイトル
+ハーゲンダッツ売上レポート ランディングページ作成
+```
 
-### 🔍 チェックポイント
-- 要件との一致度
-- コードの品質
-- 文書の正確性
+**サイトの動作確認**
 
----
-
-## ステップ4: git commit
-
-<div class="hands-on">
-
-### 📝 成果物の管理
-- 完成した成果物をGitで管理
-- コミットメッセージの自動生成
-- バージョン管理のベストプラクティス
-
-### 💻 **やってみよう**: 実際にcommit・pushを実行
-
-</div>
+http://localhost:3000
 
 ---
 
-### 🎯 完成！
-<pre class="mermaid">
-graph LR
-    A[課題] --> B[実装]
-    B --> C[検証]
-    C --> D[管理]
-</pre>
+
+# Step 4: Git自動コミット 🚀
+
+**プロンプト例:**
+```
+sales_reportフォルダ
+git diff確認、実装した内容を日本語でコミットメッセージ作成
+gitにコミットして
+```
+
+---
+<style scoped>
+section {
+  padding-top:20px;
+  font-size:25px;
+}
+</style>
+
+# ポイント ⭐
+
+### 💡 生成AIを活用するコツ
+
+1. **具体的な指示**を出す
+   - 曖昧な表現は避けて、やりたいことを明確に伝える
+
+2. **段階的に**進める
+   - 一度に全部やろうとせず、小さなステップに分けて進む
+
+3. **計画と実行を分ける** 🎯
+   - まず何をするか計画を立ててから実装に移る
+   - いきなり作業させないことが重要
+   - 計画フェーズで全体像を考えさせてから実行フェーズへ
+
+4. **エラーが出たら**生成AIに相談
+   - エラーメッセージをコピペして解決策を聞く
 
 ---
 
@@ -839,10 +913,15 @@ graph LR
 # まとめ
 ## 今日学んだこと ✨
 
+1. **生成AIとの協働**で開発効率UP
+2. **MCP連携**でツール統合
+3. **自動化**で単純作業削減
+
+</div>
 
 ### 🚀 習得したスキル
 - ✅ VSCODE×生成AI×MCPの基本操作
-- ✅ 月報自動作成システムの構築
+- ✅ 売上データの分析
 - ✅ Jira・Git連携による業務効率化
 - ✅ 実践的なワークフロー
 
