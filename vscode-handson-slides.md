@@ -116,7 +116,7 @@ style: |
 </script>
 
 
-# 今日から使えるVSCODE×生成AI×MCP
+# 今日から使えるVSCode×生成AI×MCP
 
 ## プログラミング知識不要で次世代業務効率化！
 
@@ -130,7 +130,7 @@ style: |
 - プログラミングは苦手だけど生成AIに興味がある人  
 - 生成AIによるMCP連携を始めてみたい人
 
-**🎯 目標：** 自分の仕事にVSCODEx生成AIを取り入れてみよう！
+**🎯 目標：** 自分の仕事にVSCodex生成AIを取り入れてみよう！
 
 ---
 
@@ -156,7 +156,7 @@ style: |
 
 ---
 
-# 1-1. なぜ今VSCODE×生成AIなのか？
+# 1-1. なぜ今VSCode×生成AIなのか？
 
 ## 🚀 新時代の到来
 - エンジニア以外でも使える時代の到来
@@ -176,12 +176,12 @@ style: |
 
 | ツール | 役割 | 効果 |
 |--------|------|------|
-| **VSCODE** | 万能エディタとしての活用 | 統合環境で効率UP |
+| **VSCode** | 万能エディタとしての活用 | 統合環境で効率UP |
 | **生成AI** | 文章・コード生成の相棒 | 自動化で時短実現 |
 | **MCP** | 生成AIを利用し、テキスト以外の用途で実行 | システム間連携 |
 
 ---
-# 1-3. VSCODEと生成AI
+# 1-3. VSCodeと生成AI
 
 ## 📅 2024年：生成AI拡張機能の登場
 
@@ -260,7 +260,7 @@ font-size: 26px;
 
 ## 💫 2025年の革新
 - テキストファイルをベースとして、幅広い使い方が可能に
-- エンジニア以外でもVSCODEを使い始める人が急増
+- エンジニア以外でもVSCodeを使い始める人が急増
 - 業務効率化の新次元へ突入
 ---
 
@@ -276,7 +276,7 @@ font-size: 26px;
 <div class="lecture">
 
 ### 📚 内部的な仕組み
-- VSCODEの拡張機能がどう連携しているか
+- VSCodeの拡張機能がどう連携しているか
 - 生成AIツールとの接続の仕組み
 
 </div>
@@ -293,8 +293,8 @@ section {
 
 <pre class="mermaid">
 sequenceDiagram
-    participant User as 👤 ユーザー
-    participant VSCode as 📝 VSCODE
+    actor User as 👤 ユーザー
+    participant VSCode as 📝 VSCode
     participant Plugin as 🔌 拡張機能(roo cline等)
     participant API as 🌐 生成AI API(ChatGPT)
 
@@ -305,9 +305,6 @@ sequenceDiagram
     Plugin->>VSCode: エディタに自動挿入
     VSCode->>User: 生成コードを表示
 </pre>
-
-
-
 ---
 
 ## 2-2. Roo Codeの使い方 🎯
@@ -419,7 +416,7 @@ section {
 
 ## ステップ1: 生成AIでデータ分析
 
-VSCODEと生成AIを組み合わせることで、強力なツールへ！
+VSCodeと生成AIを組み合わせることで、強力なツールへ！
 
 <div class="hands-on">
 
@@ -572,7 +569,7 @@ marp
 
 # Chapter 3まとめ
 
-VSCODEと組み合わせることで、チャットインターフェースを超えた効率化！
+VSCodeと組み合わせることで、チャットインターフェースを超えた効率化！
 
 ## 🎯 実現したこと
 
@@ -601,7 +598,7 @@ section {
 
 ## 💡 従来との違い
 
-| 従来の方法 | VSCODE + 生成AI |
+| 従来の方法 | VSCode + 生成AI |
 |---|---|
 | Excel手作業 → 数時間 | **自動分析 → 数分** |
 | グラフ手作業 → 30分 | **Python自動生成 → 数秒** |
@@ -615,7 +612,7 @@ section {
 - **継続的改善の仕組み化**
 
 ## ✨ ポイント
-**チャットだけじゃない！VSCODEならではの強力な連携**
+**チャットだけじゃない！VSCodeならではの強力な連携**
 
 
 
@@ -712,7 +709,7 @@ section {
 <pre class="mermaid">
 sequenceDiagram
     participant User as 👤 ユーザー
-    participant VSCode as 📝 VSCODE
+    participant VSCode as 📝 VSCode
     participant API as 🌐 生成AI API(ChatGPT)
     participant MCP as 🔌 MCP Server
     participant Jira as 📋 Jira API
@@ -958,7 +955,7 @@ section {
 </div>
 
 ### 🚀 習得したスキル
-- ✅ VSCODE×生成AI×MCPの基本操作
+- ✅ VSCode×生成AI×MCPの基本操作
 - ✅ 売上データの分析
 - ✅ MCP連携による業務効率化
 
