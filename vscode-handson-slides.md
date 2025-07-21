@@ -597,6 +597,8 @@ section {
 やさしい MCP 入門
 https://speakerdeck.com/minorun365/yasasiimcpru-men
 
+---
+
 ## 🌟 MCP の具体的なメリット
 
 ### 従来の課題 😰
