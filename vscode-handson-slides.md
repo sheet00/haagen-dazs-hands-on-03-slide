@@ -1,3 +1,4 @@
+---
 marp: true
 title: "VSCode×生成AI×MCPで業務効率化ハンズオン"
 theme: default
@@ -114,7 +115,7 @@ style: |
   mermaid.initialize({ startOnLoad: true });
 </script>
 
-# 今日から使える VSCode× 生成 AI×MCP
+# 今日から使える VSCode × 生成 AI × MCP
 
 ## プログラミング知識不要で次世代業務効率化！
 
@@ -129,7 +130,7 @@ style: |
 - プログラミングは苦手だけど生成 AI に興味がある人
 - 生成 AI による MCP 連携を始めてみたい人
 
-**🎯 目標：** 自分の仕事に VSCodex 生成 AI を取り入れてみよう！
+**🎯 目標：** 自分の仕事に VSCode × 生成 AI を取り入れてみよう！
 
 ---
 
@@ -157,7 +158,7 @@ style: |
 
 ---
 
-# 1-1. なぜ今 VSCode× 生成 AI なのか？
+# 1-1. なぜ今 VSCode × 生成 AI なのか？
 
 ## 🚀 新時代の到来
 
@@ -167,7 +168,7 @@ style: |
 ## 💡 変化のポイント
 
 - 自然言語での指示が可能
-- 生成 AI とテキストコンテ���ツ
+- 生成 AI とテキストコンテンツ
 - ツール連携の自動化
 
 ---
@@ -176,11 +177,11 @@ style: |
 
 ### 🛠️ 三種の神器
 
-| ツール      | 役割                                       | 効果              |
-| ----------- | ------------------------------------------ | ----------------- |
-| **VSCode**  | 万能エディタとしての活用                   | 統合環境で効率 UP |
-| **生成 AI** | 文章・コード生成の相棒                     | 自動化で時短実現  |
-| **MCP**     | 生成 AI を利用し、テキスト以外の用途で実行 | システム間連携    |
+| ツール      | 役割                                       | 効果                 |
+| ----------- | ------------------------------------------ | -------------------- |
+| **VSCode**  | 万能エディタとしての活用                   | 統合環境で効率アップ |
+| **生成 AI** | 文章・コード生成の相棒                     | 自動化で時短実現     |
+| **MCP**     | 生成 AI を利用し、テキスト以外の用途で実行 | システム間連携       |
 
 ---
 
@@ -203,7 +204,7 @@ style: |
 
 ## 🚗 人間が主導権を握る時代
 
-- **開発者**がコードの設計、判断、デバッグを主に���う。
+- **開発者**がコードの設計、判断、デバッグを主に行う。
 - 生成 AI は、人間の**コーディング作業を補助**するツール。
 
 ## 🛠️ 生成 AI の主な役割
@@ -394,7 +395,7 @@ section {
 
 - **WEB ページ要約 → 資料作成**：サイト情報を自動取得し、Markdown で整形
 - **問い合わせメール → FAQ 更新**：顧客の質問をもとに知識ベースを充実
-- **Jira チケット → 進捗レ���ート**：プロジェクト状況を自動集計・可視化
+- **Jira チケット → 進捗レポート**：プロジェクト状況を自動集計・可視化
 - **コードレビュー → 内容実装**：既存コードを解析し、品質向上とバグ修正を実行
 - **会議メモ → 次回会議アジェンダ作成**：議事録を分析し、次回の議論ポイントを自動生成
 
@@ -511,11 +512,8 @@ VSCode と組み合わせることで、チャットインターフェースを�
 <style scoped>
 section {
   padding-top:20px;
-  font-size:20px;
 }
 </style>
-
-# Chapter 3 まとめ（続き）
 
 ## 💡 従来との違い
 
@@ -532,9 +530,32 @@ section {
 - **人的ミスの削減**
 - **継続的改善の仕組み化**
 
+---
+
+<style scoped>
+section {
+  padding-top:20px;
+}
+</style>
+
 ## ✨ ポイント
 
 **チャットだけじゃない！VSCode ならではの強力な連携**
+
+## 🔮 次のステップ
+
+ここまでで**VSCode × 生成 AI**の威力を体感できました！
+でも、もっとすごいことができるんです...
+
+### 💡 こんなことできたら便利じゃない？
+
+- 📋 **「JIRA にバグ修正チケット作って！」** → 自動でチケット作成
+- 🐙 **「GitHub に今日の作業内容をコミットして！」** → 自動でコミット
+- 📊 **「売上データを Slack に共有して！」** → 自動でメッセージ投稿
+
+#### 🚀 それを可能にするのが...
+
+**MCP (Model Context Protocol)** です！
 
 ---
 
@@ -567,11 +588,25 @@ section {
 生成 AI が**自分で考えて**、API を呼び出す機能
 
 ✨ **従来**：人間が API を呼び出し、結果を生成 AI に渡す
-✨ **MCP**：生成 AI が必要に応じ��自動で API を呼び出す  
+✨ **MCP**：生成 AI が必要に応じ、自動で API を呼び出す  
 ✨ **結果**：より自然で効率的な対話が可能に！
 
 やさしい MCP 入門
 https://speakerdeck.com/minorun365/yasasiimcpru-men
+
+## 🌟 MCP の具体的なメリット
+
+### 従来の課題 😰
+
+- コピー＆ペーストの手作業
+- API ドキュメントを読んで理解
+- パラメータを手動で設定
+
+### MCP を使うと... ✨
+
+- 自然言語で指示するだけ
+- 生成 AI が自動で API 選択
+- エラーハンドリングも自動
 
 ---
 
@@ -593,10 +628,6 @@ https://speakerdeck.com/minorun365/yasasiimcpru-men
 - **生成 AI**：「なら**file_write**機能使うね！」
 - **生成 AI**：ファイル作成完了！
 
----
-
-## MCP の仕組み（図解）
-
 <pre class="mermaid">
 graph LR
     A[ユーザー] -->|「ファイルを作成して！」| B[生成AI]
@@ -616,6 +647,10 @@ graph LR
     style D fill:#ffb74d,color:#ffffff
     style MCP fill:#bdbdbd
 </pre>
+
+---
+
+## MCP の仕組み（図解）
 
 ---
 
@@ -683,6 +718,62 @@ https://github.com/modelcontextprotocol/servers-archived/tree/main/src/github
 
 ---
 
+<style scoped>
+section {
+  padding-top:20px;
+  font-size: 24px;
+}
+</style>
+
+# 📋 実践的な JIRA MCP 活用例
+
+<div class="hands-on">
+
+### 🎯 【重要】Chapter 5 で実際に使います！
+
+次のワークショップで使う JIRA MCP の具体的な活用方法を理解しよう
+
+</div>
+
+## 🔥 JIRA MCP でできること
+
+| 機能               | 説明                                 | 実用例                                   |
+| ------------------ | ------------------------------------ | ---------------------------------------- |
+| **チケット作成**   | 自然言語から JIRA チケットを自動作成 | 「ログイン画面のバグ修正チケット作って」 |
+| **チケット検索**   | JQL クエリで高度な検索が可能         | 「今週のバグチケット一覧を表示して」     |
+| **ステータス変更** | チケットの状態を自動更新             | 「PROJ-123 を完了状態にして」            |
+| **コメント追加**   | 進捗報告や議事録を自動追加           | 「修正完了しました」を自動コメント       |
+
+---
+
+# ⚙️ JIRA MCP 設定（ハーゲンダッツ用）
+
+```json
+{
+  "mcpServers": {
+    "mcp-atlassian": {
+      "command": "docker",
+      "args": [
+        "run",
+        "--rm",
+        "-i",
+        "--env",
+        "JIRA_API_TOKEN=<YOUR_TOKEN>",
+        "--env",
+        "JIRA_URL=https://haagen-dazs.atlassian.net",
+        "--env",
+        "JIRA_USERNAME=<YOUR_EMAIL>",
+        "ghcr.io/sooperset/mcp-atlassian:latest"
+      ]
+    }
+  }
+}
+```
+
+**📝 注意**: 実際の API トークンは設定済みです
+
+---
+
 <!-- _class: chapter -->
 
 # Chapter 5
@@ -694,7 +785,6 @@ https://github.com/modelcontextprotocol/servers-archived/tree/main/src/github
 <style scoped>
 section {
   padding-top:20px;
-  font-size:28px;
 }
 </style>
 
@@ -712,19 +802,25 @@ section {
 
 売上データ CSV を読み込んで、簡単なランディングページを作成してください
 
-## 手順
+## 🗺️ 手順
 
-- **生成 AI で**ランディン���ページ実装計画を作成
-- **生成 AI で**JIRA にチケット登録
-- **生成 AI で**ランディングページ作成
-- **生成 AI で**git commit
+<pre class="mermaid">
+graph LR
+    A[①計画 🤖] --> B[②チケット作成 🎫]
+    B --> C[③実装 💻]
+    C --> D[④コミット 🚀]
+   
+    style A fill:#e1f5fe,color:#01579b
+    style B fill:#fff3e0,color:#e65100
+    style C fill:#e8f5e8,color:#2e7d32
+    style D fill:#fce4ec,color:#ad1457
+</pre>
 
 ---
 
 <style scoped>
 section {
   padding-top:20px;
-  font-size:20px;
 }
 </style>
 
@@ -749,7 +845,7 @@ https://haagen-dazs.atlassian.net/jira/software/projects/FMDV/boards/2/backlog
 
 **サイトの動作確認**
 
-http://localhost:3000
+https://yudemen.net/sales_report/
 
 ---
 
@@ -778,11 +874,11 @@ section {
 
    - 一度に全部やろうとせず、小さなステップに分けて進む
 
-3. **計画と実行を分ける** 🎯
+3. **⭐ 計画と実行を分ける** 🎯
 
-   - まず何をするか計画を立ててから実装に移る
-   - いきなり��業させないことが重要
-   - 計画フェーズで全体像を考えさせてから実行フェーズへ
+   - ✅ まず何をするか計画を立ててから実装に移る
+   - ❌ いきなり作業させないことが重要
+   - ✅ 計画フェーズで全体像を考えさせてから実行フェーズへ
 
 4. **エラーが出たら**生成 AI に相談
    - エラーメッセージをコピペして解決策を聞く
@@ -803,6 +899,6 @@ section {
 
 ### 🚀 習得したスキル
 
-- ✅ VSCode× 生成 AI×MCP の基本操作
+- ✅ VSCode × 生成 AI × MCP の基本操作
 - ✅ 売上データの分析
 - ✅ MCP 連携による業務効率化

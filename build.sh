@@ -2,6 +2,9 @@
 
 # Marp CLI でMarkdownからHTMLスライドを生成してGitHub Pagesに自動デプロイ
 
+# スクリプトがあるディレクトリに移動
+cd "$(dirname "$0")"
+
 echo "🚀 Marpでスライドを生成中..."
 marp --html vscode-handson-slides.md -o index.html
 
