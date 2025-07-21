@@ -300,7 +300,7 @@ section {
 
 <pre class="mermaid">
 sequenceDiagram
-    actor User as 👤 ユーザー
+    participant User as 👤 ユーザー
     participant VSCode as 📝 VSCode
     participant Plugin as 🔌 拡張機能(roo cline等)
     participant API as 🌐 生成AI API(ChatGPT)
@@ -311,6 +311,9 @@ sequenceDiagram
     API->>Plugin: 生成結果返却(コード)
     Plugin->>VSCode: エディタに自動挿入
     VSCode->>User: 生成コードを表示
+
+    %% 文字色を白色に指定
+    %%{init: {'theme':'base', 'themeVariables': { 'primaryTextColor': '#ffffff', 'actorTextColor': '#ffffff', 'participantTextColor': '#ffffff', 'labelTextColor': '#ffffff'}}}%%
 </pre>
 
 ---
@@ -685,6 +688,9 @@ sequenceDiagram
     MCP->>API: 作成完了情報を転送
     API->>VSCode: 「PROJ-124を作成しました」<br/>チケット詳細も表示
     VSCode->>User: 作成完了を表示
+
+    %% 文字色を白色に指定
+    %%{init: {'theme':'base', 'themeVariables': { 'primaryTextColor': '#ffffff', 'actorTextColor': '#ffffff', 'participantTextColor': '#ffffff', 'labelTextColor': '#ffffff'}}}%%
 </pre>
 
 ---
